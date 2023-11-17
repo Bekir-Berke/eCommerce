@@ -17,17 +17,27 @@ struct ProductListView: View {
         NavigationStack{
             ScrollView(.vertical){
                 LazyVGrid(columns: columns, spacing: 20){
-                    ForEach(productViewModel.filteredProducts, id: \.id){product in
-                        ProductListRowView(product: product)
+                    ForEach(productViewModel.filteredProducts, id:\.id){product in
+                        NavigationLink(value: product){
+                            ProductListRowView(product: product)
+                                .accentColor(.black)
+                        }
                     }
                 }
             }
             .onAppear{
                 productViewModel.fetchProducts()
             }
-            .searchable(text: $productViewModel.searchText)
+            .searchable(text: $productViewModel.searchText, placement: .navigationBarDrawer(displayMode: .automatic), prompt: "Ürün ara")
             .navigationBarTitleDisplayMode(.automatic)
+            .toolbarBackground(
+                Color.gray.opacity(0.1),
+                for:.navigationBar
+            )
             .navigationTitle("Götür")
+            .navigationDestination(for: Product.self){product in
+                    ProductDetailView(product: product)
+            }
             .overlay{
                 if productViewModel.filteredProducts.isEmpty{
                     ContentUnavailableView.search(text: productViewModel.searchText)

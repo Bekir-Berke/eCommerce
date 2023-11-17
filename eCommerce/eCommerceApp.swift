@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 @main
 struct eCommerceApp: App {
     var body: some Scene {

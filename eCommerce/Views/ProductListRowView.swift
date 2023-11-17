@@ -23,12 +23,15 @@ struct ProductListRowView: View {
                 Text(product.title)
                     .font(.caption)
                 HStack{
-                    Text("\(product.price.formatted()) €")
+                    Text("\(product.price.formatted(.currency(code: "TRY")))")
                         .font(.subheadline)
                 }
-            }
+            }.padding(.horizontal)
         }
         .frame(width: 150, height: 150)
+        .background(.gray.opacity(0.09))
+        .border(.black.opacity(0.01))
+        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
     }
 }
 

@@ -6,14 +6,14 @@
 //
 
 import Foundation
-struct Product: Codable, Identifiable{
+struct Product: Codable, Identifiable, Hashable{
     let id: Int
     let price: Double
     let title, description, image: String
     let category: String
     let rating: Rating
 }
-struct Rating: Codable{
+struct Rating: Codable, Hashable{
     let rate: Double
     let count: Int
 }
