@@ -6,18 +6,19 @@
 //
 
 import Foundation
-import Alamofire
-class ProductViewModel: ObservableObject{
-    @Published var products: [Product] = []
-    @Published var searchText: String = ""
+import Observation
+@Observable 
+public class ProductViewModel{
+    var products: [Product] = []
+    var searchText: String = ""
     func fetchProducts(){
-        AF.request("https://fakestoreapi.com/products").responseDecodable(of:[Product].self){response in
-            switch response.result{
-            case.success(let products):
-                self.products = products
-            case.failure(let error):
-                print(error)
-            }
+        NetworkManager.shared.getProducts{ result in
+                switch result{
+                case.success(let products):
+                    self.products = products
+                case.failure(let error):
+                    print(error)
+                }
         }
     }
     var filteredProducts: [Product]{

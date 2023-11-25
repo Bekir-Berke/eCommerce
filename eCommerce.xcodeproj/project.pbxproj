@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E105918D2B1204D100529C7E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E105918C2B1204D100529C7E /* NetworkManager.swift */; };
+		E105918F2B1204F000529C7E /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E105918E2B1204F000529C7E /* Endpoint.swift */; };
 		E12D8F4C2B00E5350046326C /* eCommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D8F4B2B00E5350046326C /* eCommerceApp.swift */; };
 		E12D8F4E2B00E5350046326C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D8F4D2B00E5350046326C /* ContentView.swift */; };
 		E12D8F502B00E5350046326C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E12D8F4F2B00E5350046326C /* Assets.xcassets */; };
 		E12D8F532B00E5350046326C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E12D8F522B00E5350046326C /* Preview Assets.xcassets */; };
 		E12D8F5C2B00E5850046326C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D8F5B2B00E5850046326C /* Product.swift */; };
-		E12D8F5F2B00E5AB0046326C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E12D8F5E2B00E5AB0046326C /* Alamofire */; };
 		E12D8F632B00E9520046326C /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D8F622B00E9520046326C /* ProductListView.swift */; };
 		E12D8F652B00E97C0046326C /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D8F642B00E97C0046326C /* ProductViewModel.swift */; };
 		E16C8DD22B0548C100B06479 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C8DD12B0548C100B06479 /* ProductDetailView.swift */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E105918C2B1204D100529C7E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E105918E2B1204F000529C7E /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		E12D8F482B00E5350046326C /* eCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12D8F4B2B00E5350046326C /* eCommerceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eCommerceApp.swift; sourceTree = "<group>"; };
 		E12D8F4D2B00E5350046326C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,13 +40,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E12D8F5F2B00E5AB0046326C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E105918B2B1203E500529C7E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E105918C2B1204D100529C7E /* NetworkManager.swift */,
+				E105918E2B1204F000529C7E /* Endpoint.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E11B688E2B0BD3CC00C3A4DE /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				E16C8DD12B0548C100B06479 /* ProductDetailView.swift */,
+				E1FD9A5D2B0140C4001ABCD3 /* ProductListRowView.swift */,
+				E12D8F622B00E9520046326C /* ProductListView.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
 		E12D8F3F2B00E5350046326C = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +84,7 @@
 		E12D8F4A2B00E5350046326C /* eCommerce */ = {
 			isa = PBXGroup;
 			children = (
+				E105918B2B1203E500529C7E /* Service */,
 				E12D8F612B00E8C40046326C /* ViewModels */,
 				E12D8F5A2B00E5570046326C /* Models */,
 				E12D8F592B00E5500046326C /* Views */,
@@ -84,10 +106,8 @@
 		E12D8F592B00E5500046326C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E11B688E2B0BD3CC00C3A4DE /* Product */,
 				E12D8F4D2B00E5350046326C /* ContentView.swift */,
-				E12D8F622B00E9520046326C /* ProductListView.swift */,
-				E1FD9A5D2B0140C4001ABCD3 /* ProductListRowView.swift */,
-				E16C8DD12B0548C100B06479 /* ProductDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -125,7 +145,6 @@
 			);
 			name = eCommerce;
 			packageProductDependencies = (
-				E12D8F5E2B00E5AB0046326C /* Alamofire */,
 			);
 			productName = eCommerce;
 			productReference = E12D8F482B00E5350046326C /* eCommerce.app */;
@@ -185,9 +204,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12D8F632B00E9520046326C /* ProductListView.swift in Sources */,
+				E105918F2B1204F000529C7E /* Endpoint.swift in Sources */,
 				E16C8DD22B0548C100B06479 /* ProductDetailView.swift in Sources */,
 				E12D8F4E2B00E5350046326C /* ContentView.swift in Sources */,
 				E12D8F4C2B00E5350046326C /* eCommerceApp.swift in Sources */,
+				E105918D2B1204D100529C7E /* NetworkManager.swift in Sources */,
 				E12D8F5C2B00E5850046326C /* Product.swift in Sources */,
 				E12D8F652B00E97C0046326C /* ProductViewModel.swift in Sources */,
 				E1FD9A5E2B0140C4001ABCD3 /* ProductListRowView.swift in Sources */,
@@ -330,8 +351,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -359,8 +379,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -407,14 +426,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		E12D8F5E2B00E5AB0046326C /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E12D8F5D2B00E5AB0046326C /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E12D8F402B00E5350046326C /* Project object */;
 }

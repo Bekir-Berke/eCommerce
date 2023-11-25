@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProductListView: View {
-    @StateObject private var productViewModel = ProductViewModel()
+    @State var productViewModel = ProductViewModel()
     private var columns: [GridItem] = [
         GridItem(.flexible(minimum: 150)),
         GridItem(.flexible(minimum: 150))
@@ -28,12 +28,9 @@ struct ProductListView: View {
             .onAppear{
                 productViewModel.fetchProducts()
             }
-            .searchable(text: $productViewModel.searchText, placement: .navigationBarDrawer(displayMode: .automatic), prompt: "Ürün ara")
-            .navigationBarTitleDisplayMode(.automatic)
-            .toolbarBackground(
-                Color.gray.opacity(0.1),
-                for:.navigationBar
-            )
+            .searchable(text: $productViewModel.searchText, placement: .navigationBarDrawer(displayMode:.automatic), prompt: "Ürün ara")
+            .navigationBarTitleDisplayMode(.large)
+            .toolbarBackground(Color.white.opacity(1), for: .navigationBar)
             .navigationTitle("Götür")
             .navigationDestination(for: Product.self){product in
                     ProductDetailView(product: product)
@@ -44,6 +41,9 @@ struct ProductListView: View {
                 }
             }
         }
+    }
+    init(){
+        
     }
 }
 
